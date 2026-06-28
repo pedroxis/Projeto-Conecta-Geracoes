@@ -1,0 +1,59 @@
+\
+CRIADO TODAS AS TABELAS EM SQL:
+
+==================================================USUÁRIO
+CREATE TABLE usuarios (
+	id INTEGER PRIMARY KEY AUTOINCREMENT, 
+	nome TEXT NOT NULL, 
+	tel TEXT, 
+	cpf TEXT, 
+	data_nasc DATE, 
+	tipo TEXT NOT NULL, 
+	pret_salarial REAL
+)
+
+FOI DEFINIDO NOVAS COLUNAS PRA TABELA USUÁRIO, POIS O MVP DO APP VISA CONSEGUIR FILTRAR 
+VAGAS DE EMPREGO DEPENDENDO DA REGIÃO (CANDIDATO DE SÃO PAULO FILTRA VAGAS EM SÃO PAULO)
+
+//pensando nisso, provavelmente se houver tempo, será criada uma tabela (entidade) vagas com seus próprios atributos.
+
+ALTER TABLE usuarios ADD COLUMN 
+	estado TEXT
+		
+ALTER TABLE usuarios ADD COLUMN 
+	cidade TEXT
+
+
+==================================================CURRICULO
+CREATE TABLE curriculos (
+	id INTEGER PRIMARY KEY AUTOINCREMENT, 
+	usr_id INTEGER NOT NULL, 
+	nome_arquivo TEXT, 
+	data_envio DATE NOT NULL, 
+	caminho TEXT NOT NULL, 
+	FOREIGN KEY (usr_id) REFERENCES usuarios(id)
+)
+-- Resulto: consulta executada com sucesso. Levou 0ms
+
+
+=================================================FEEDBACK
+CREATE TABLE feedbacks (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id_recrutador INTEGER NOT NULL, 
+	id_curriculo INTEGER NOT NULL, 
+	comentario TEXT, 
+	data_envio DATE, 
+	FOREIGN KEY (id_recrutador) REFERENCES usuarios(id), 
+	FOREIGN KEY (id_curriculo) REFERENCES curriculos(id)
+)
+
+
+
+
+===========================
+
+TESTANDO AS TABELAS E INSERINDO OS PRIMEIROS DADOS EM CADA UMA DELAS:
+
+INSERT
+
+
