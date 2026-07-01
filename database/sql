@@ -54,6 +54,43 @@ CREATE TABLE feedbacks (
 
 TESTANDO AS TABELAS E INSERINDO OS PRIMEIROS DADOS EM CADA UMA DELAS:
 
-INSERT
 
+Foram inseridos novos usuários do tipo candidato.
+Primeira inserção de um currículo feita na tabela.
 
+Testanto a chave estrangeira que relaciona um currículo a um candidato:
+
+select * from usuarios;
+select * from curriculos;
+select * from feedbacks;
+
+select 
+	u.nome,
+	u.tel,
+	c.data_envio,
+	c.caminho
+from usuarios u join curriculos c 
+where u.id = c.usr_id
+
+A execução foi feita sem erros.
+ 
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
